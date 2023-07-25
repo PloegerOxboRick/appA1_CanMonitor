@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>but_UpB.png</file>
+        <file>but_PlayB.png</file>
+        <file>but_PauseB.png</file>
+        <file>but_DownB.png</file>
+        <file>resetB.png</file>
+        <file>disk40B.png</file>
+        <file>UsbDevice64B.png</file>
+        <file>abortCrossThin64B.png</file>
+    </qresource>
+</RCC>

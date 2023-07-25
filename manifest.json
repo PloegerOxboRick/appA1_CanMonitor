@@ -1,0 +1,16 @@
+{
+	"appIdName":		"appA1_CanMonitor",
+	"appName":		"CAN Monitor",
+	"category":		"Diagnostics",
+	"description":		"Shows in- and outgoing CAN-bus traffic",
+	"symbol":		"icon.png",
+	"rqAccessRights":	"",
+
+	"executableName":	"appA1_CanMonitor",
+	"maxInstances":		1,
+	"autoStart":		false,
+
+	"invisible":		false,
+	"defaultLocation":	"Diagnostics3",
+	"fixedLocation":	false
+}

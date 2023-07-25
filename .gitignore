@@ -47,3 +47,12 @@ compile_commands.json
 
 # QtCreator local machine specific files for imported projects
 *creator.user*
+
+*_qmlcache.qrc
+
+ReleaseX86/
+ReleaseX64/
+ReleaseIMX8/
+ReleaseIMX8_debug/
+ReleaseXS/
+ReleaseVS/

@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>784</width>
+    <height>688</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(250, 248, 246);
+background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QFrame" name="frameMaximized">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>784</width>
+      <height>688</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: white;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="btnClear">
+     <property name="geometry">
+      <rect>
+       <x>538</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/resetB.png</normaloff>:/resetB.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>44</width>
+       <height>44</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>61</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>LineError:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnScrollDn">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>615</y>
+       <width>64</width>
+       <height>64</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/but_DownB.png</normaloff>:/but_DownB.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>48</width>
+       <height>48</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>70</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>Received:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLineOpened">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>70</y>
+       <width>41</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(204, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>no</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblBitrate">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>90</y>
+       <width>41</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>250</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblResetCnt">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>70</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblOverflowCnt">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>70</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>70</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Overflows:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>70</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>Resets:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnFltrMsgId">
+     <property name="geometry">
+      <rect>
+       <x>186</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>Msg ID:
+ All</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>110</y>
+       <width>784</width>
+       <height>577</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;
+font: 10pt;</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
+     </property>
+     <property name="cornerButtonEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="rowCount">
+      <number>63</number>
+     </property>
+     <attribute name="horizontalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>30</number>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>60</number>
+     </attribute>
+     <attribute name="horizontalHeaderHighlightSections">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="verticalHeaderVisible">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>20</number>
+     </attribute>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>SRC</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>PGN</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Description</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Delta</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>#</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B3</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B4</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B5</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B6</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B7</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>B8</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>90</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>LastError:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>LineOpen:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>90</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>KBPS:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnPaused">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>80</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );
+
+background-color: rgb(239, 71, 71);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/but_PauseB.png</normaloff>:/but_PauseB.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>49</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnStartTrace">
+     <property name="geometry">
+      <rect>
+       <x>626</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 10pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>Start
+Trace</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/UsbDevice64B.png</normaloff>:/UsbDevice64B.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnRecording">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>80</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );
+
+background-color: rgb(95, 200, 12);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/but_PlayB.png</normaloff>:/but_PlayB.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>49</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTxCount">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>90</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnFltrSrc">
+     <property name="geometry">
+      <rect>
+       <x>98</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>Source:
+ All</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblRxCount">
+     <property name="geometry">
+      <rect>
+       <x>550</x>
+       <y>70</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>90</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>Transmitted:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>660</x>
+       <y>70</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>Bus Load %:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnScrollUp">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>545</y>
+       <width>64</width>
+       <height>64</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/but_UpB.png</normaloff>:/but_UpB.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>48</width>
+       <height>48</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLastErrCode">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>90</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>90</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>ErrorFrames:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnStopTrace">
+     <property name="geometry">
+      <rect>
+       <x>626</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 10pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );
+
+background-color: rgb(239, 71, 71);</string>
+     </property>
+     <property name="text">
+      <string>Stop
+Trace</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/UsbDevice64B.png</normaloff>:/UsbDevice64B.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblErrFrames">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>90</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnToggleHex">
+     <property name="geometry">
+      <rect>
+       <x>274</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>HEX</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnToggleProtocol">
+     <property name="geometry">
+      <rect>
+       <x>362</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>J1939</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLineError">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>90</y>
+       <width>41</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(120, 120, 120);</string>
+     </property>
+     <property name="text">
+      <string>no</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnToggleBus">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>10</y>
+       <width>80</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string>BUS 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnMinimize">
+     <property name="geometry">
+      <rect>
+       <x>716</x>
+       <y>10</y>
+       <width>60</width>
+       <height>48</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 236, 237);
+font: 12pt bold;
+border-radius: 7px;
+border-style: none; 
+color: rgb( 33, 32, 53 );</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="../Data/Images/images.qrc">
+       <normaloff>:/abortCrossThin64B.png</normaloff>:/abortCrossThin64B.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+    </widget>
+    <zorder>btnClear</zorder>
+    <zorder>label_2</zorder>
+    <zorder>label_5</zorder>
+    <zorder>lblLineOpened</zorder>
+    <zorder>lblBitrate</zorder>
+    <zorder>lblResetCnt</zorder>
+    <zorder>label_7</zorder>
+    <zorder>label_4</zorder>
+    <zorder>btnFltrMsgId</zorder>
+    <zorder>tableWidget</zorder>
+    <zorder>label_3</zorder>
+    <zorder>label</zorder>
+    <zorder>label_8</zorder>
+    <zorder>btnPaused</zorder>
+    <zorder>btnStartTrace</zorder>
+    <zorder>btnRecording</zorder>
+    <zorder>lblTxCount</zorder>
+    <zorder>btnFltrSrc</zorder>
+    <zorder>lblRxCount</zorder>
+    <zorder>label_6</zorder>
+    <zorder>label_9</zorder>
+    <zorder>btnScrollUp</zorder>
+    <zorder>lblLastErrCode</zorder>
+    <zorder>label_10</zorder>
+    <zorder>btnStopTrace</zorder>
+    <zorder>lblErrFrames</zorder>
+    <zorder>btnToggleHex</zorder>
+    <zorder>btnToggleProtocol</zorder>
+    <zorder>lblLineError</zorder>
+    <zorder>btnToggleBus</zorder>
+    <zorder>btnScrollDn</zorder>
+    <zorder>lblOverflowCnt</zorder>
+    <zorder>btnMinimize</zorder>
+   </widget>
+   <widget class="QFrame" name="frameMinimized">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>400</width>
+      <height>336</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: white;
+font: 12pt;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="lblTxCount_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>140</y>
+       <width>131</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>160</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bus Load %:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblRxCount_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>120</y>
+       <width>131</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>80</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>LineError:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>240</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ErrorFrames:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLineError_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>80</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(120, 120, 120);</string>
+     </property>
+     <property name="text">
+      <string>no</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>200</y>
+       <width>71</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Resets:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblOverflowCnt_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>220</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblErrFrames_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>240</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLastErrCode_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>260</y>
+       <width>211</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblLineOpened_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>60</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(204, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>no</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblResetCnt_2">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>200</y>
+       <width>51</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>60</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
+     </property>
+     <property name="text">
+      <string>LineOpened:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>220</y>
+       <width>101</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Overflows:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>140</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Transmitted:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>260</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>LastError:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_20">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>120</y>
+       <width>91</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Received:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblCanBus">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>171</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: bold 16pt;</string>
+     </property>
+     <property name="text">
+      <string>CAN-BUS 1</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>frameMinimized</zorder>
+   <zorder>frameMaximized</zorder>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../Data/Images/images.qrc"/>
+  <include location="../Data/Images/images.qrc"/>
+ </resources>
+ <connections/>
+</ui>
