@@ -177,6 +177,9 @@ const int   BUILD       = 02;
         this->setGeometry( 0,0, SCREENW_SMALL, SCREENH_SMALL );
 
         this->installEventFilter( this );
+
+        // Unpause
+        this->btnClick_Pause();
     } // create
 
 
@@ -402,7 +405,7 @@ const int   BUILD       = 02;
 /*  SIMULATE SOME RANDOM MESSAGES
 */
 #ifdef __VIRTUALMACHINE
-        PCanMessage msg;
+/*        PCanMessage msg;
         msg.setAddress( 0xFF00 + mRandI(0,254), 0xA0 + mRandI(0,10), 6 );
         msg.dlc = 5;
         msg.data.bytes[0]   = mRandI( 0, 255 );
@@ -415,6 +418,7 @@ const int   BUILD       = 02;
         msg.data.bytes[7]   = mRandI( 0, 255 );
 
         this->addMessage( &msg, 1, 0, "TestMessage" );
+        */
 #endif
 // */
     } // timerTimeOut
