@@ -8,13 +8,6 @@
 //  GLOBAL VAR
 
 MainWindow* _mainWindow = NULL;
-
-const str   APPNAME     = "appA1_CanMonitor";
-// RR.VV.BB    01.02.13
-const int   REVISION    = 01;   // Major
-const int   VERSION     = 01;   //
-const int   BUILD       = 02;
-
       str   appBuildDate= "<not set>";
       str   appVersion  = "<not set>";
 
@@ -199,11 +192,6 @@ const int   BUILD       = 02;
 
     void    MainWindow::declareVersion()
     {
-        // RR.VV.BB    01.02.13
-        const int REVISION  = 01;   // Major
-        const int VERSION   = 01;   //
-        const int BUILD     = 02;
-
         QString buildDate   = QStringLiteral(__DATE__);
         QString buildTime   = QStringLiteral(__TIME__);
 
@@ -552,7 +540,7 @@ const int   BUILD       = 02;
 
         // Clear table cells
         for (int i=0; i<MAXROWS; i++) {
-            for (int j=0; j<12; j++)
+            for (int j=0; j<13; j++)
                 this->ui->tableWidget->item( i, j )->setText( "" );
         } // for i
         this->loggedCnt = 0;
@@ -578,7 +566,7 @@ const int   BUILD       = 02;
 
         // Clear table cells
         for (int i=0; i<MAXROWS; i++) {
-            for (int j=0; j<12; j++)
+            for (int j=0; j<13; j++)
                 this->ui->tableWidget->item( i, j )->setText( "" );
         } // for i
 
