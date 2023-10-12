@@ -102,6 +102,7 @@ const str CSS_LBLWARN   = "background-color: rgb( 250, 248, 100 ); color: black;
         int             fltrMsgId;
         int             fltrBusIndex;
 
+        void    updateFilters();
     }; // MainWindow
 
 

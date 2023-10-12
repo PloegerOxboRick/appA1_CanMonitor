@@ -207,12 +207,13 @@ MainWindow* _mainWindow = NULL;
     } // declareVersion
 
 
-
     void    MainWindow::addMessage( PCanMessage* msg,
                                     const int count, const int deltaMSec, const str info )
     {
         if ( !this->recording ) return;
         // Pass filters?
+// You wouldn't need filtrs here really as the DataPool is already doing that but... the last buffered message may still come in, carrying
+// unwanted messages
         if ( this->fltrSource >= 0 ) {
             if ( this->fltrSource != msg->getSource() )
                 return;
@@ -428,6 +429,22 @@ MainWindow* _mainWindow = NULL;
     } // btnClick_Pause
 
 
+    void    MainWindow::updateFilters()
+    {
+        this->cSubscription->clearFilters();
+
+        CanMessageFilter fltr;
+        if ( this->showAsJ1939 ) {
+            fltr = CanMessageFilter( this->fltrSource,
+                                     this->fltrMsgId, this->fltrMsgId, -1, -1, -1 );
+        } else {
+            fltr = CanMessageFilter( -1, -1,-1, -1,
+                                     this->fltrMsgId, this->fltrMsgId );
+        }
+        this->cSubscription->addFilter( fltr );
+    } // updateFilters
+
+
     void    MainWindow::btnClick_FilterSrc()
     {
         if ( this->fltrSource == -1 ) {
@@ -442,12 +459,14 @@ MainWindow* _mainWindow = NULL;
             }
 
             // Apply filter
-            this->fltrSource    = fltrSrc;
+            this->fltrSource    = fltrSrc;            
             this->ui->btnFltrSrc->setText( "Source:\n" + QString::number( this->fltrSource ) );
         } else {
             this->fltrSource    = -1;
             this->ui->btnFltrSrc->setText( "Source:\nAll" );
         }
+
+        this->updateFilters();
         this->btnClick_Clear();
     } // btnClick_FilterSrc
 
@@ -474,6 +493,7 @@ MainWindow* _mainWindow = NULL;
             this->fltrMsgId    = -1;
             this->ui->btnFltrMsgId->setText( "Msg ID:\nAll" );
         }
+        this->updateFilters();
         this->btnClick_Clear();
     } // btnClick_FilterMsg
 
