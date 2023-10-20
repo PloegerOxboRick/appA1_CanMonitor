@@ -4,12 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT      += core gui network
+QT      += widgets
 
 # Installation Folder
 TARGET      = appA1_CanMonitor
+
+DEFINES            += _QT6
 
 target.path         = /opt/oxApps/$${TARGET}/ReleaseIMX8
 INSTALLS           += target
