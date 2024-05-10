@@ -151,7 +151,7 @@ MainWindow* _mainWindow = NULL;
 
         this->dataPool      = new DataPool();   // Subscribe on the Entities we need in this APP
         // Listen to AppManager
-        this->appManLink    = new MyAppManLink( "CanMonitor", this );
+        this->appManLink    = new MyAppManLink( "CanMonitor", this );        
         this->declareVersion();
 
         // Make CAN message subscriptions
@@ -173,6 +173,8 @@ MainWindow* _mainWindow = NULL;
 
         // Unpause
         this->btnClick_Pause();
+
+        this->appManLink->startListening();
     } // create
 
 
