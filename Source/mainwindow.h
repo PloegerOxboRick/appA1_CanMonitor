@@ -90,18 +90,20 @@ const str CSS_LBLWARN   = "background-color: rgb( 250, 248, 100 ); color: black;
         CanMessageLogger*   cSubscription;                      // Current selected BUS
 
         // Recorded
-        RecordedMsg     loggedMsg[ MAXROWS ];
-        int             loggedCnt;                              // Unique messages
+        RecordedMsg         loggedMsg[ MAXROWS ];
+        int                 loggedCnt;                          // Unique messages
 
         // State
-        bool            recording;
-        bool            showAsJ1939;
-        bool            showAsHex;
-        bool            showAsBin;
-        int             fltrSource;
-        int             fltrMsgId;
-        int             fltrBusIndex;
+        bool                prevNightMode;
+        bool                recording;
+        bool                showAsJ1939;
+        bool                showAsHex;
+        bool                showAsBin;
+        int                 fltrSource;
+        int                 fltrMsgId;
+        int                 fltrBusIndex;
 
+        void    toggleNightMode( const bool nightMode );
         void    updateFilters();
     }; // MainWindow
 

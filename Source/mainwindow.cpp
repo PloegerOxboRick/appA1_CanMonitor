@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <Code/oxWidgetStyleSheets.h>
 #include <QLocale>
 #include <QKeyEvent>
 
@@ -74,6 +75,7 @@ MainWindow* _mainWindow = NULL;
         _mainWindow = this;
         ui->setupUi(this);
 
+        this->prevNightMode = false;
         this->recording     = false;
         this->showAsJ1939   = true;
         this->showAsHex     = true;
@@ -96,7 +98,6 @@ MainWindow* _mainWindow = NULL;
         connect( this->ui->btnToggleBus     , SIGNAL(pressed()) , this, SLOT(btnClick_ToggleBus()) );
         connect( this->ui->btnStartTrace    , SIGNAL(pressed()) , this, SLOT(btnClick_TraceStart()) );
         connect( this->ui->btnStopTrace     , SIGNAL(pressed()) , this, SLOT(btnClick_TraceEnd()) );
-        connect( this->ui->btnStopTrace     , SIGNAL(pressed()) , this, SLOT(btnClick_TraceStop()) );
         connect( this->ui->btnClear         , SIGNAL(pressed()) , this, SLOT(btnClick_Clear()) );
         connect( this->ui->btnMinimize      , SIGNAL(pressed()) , this, SLOT(btnClick_Minimize()) );
 
@@ -326,8 +327,38 @@ MainWindow* _mainWindow = NULL;
 
 
 
+    void    MainWindow::toggleNightMode( const bool nightMode )
+    {   // Day / Night Mode changed. Adjust Stylesheets
+        this->prevNightMode = nightMode;
+        if ( nightMode ) {
+            this->setStyleSheet( CCS_DEFAULT_NIGHT );
+            this->ui->btnMinimize->setIcon(     QIcon( ":/abortCrossThin64W.png" ) );
+            this->ui->imgIcon->setPixmap(       QPixmap( ":/canBusW.png" ) );
+            this->ui->btnStartTrace->setIcon(   QIcon( ":/UsbDevice64W.png" ) );
+            this->ui->btnScrollUp->setIcon(     QIcon( ":/but_UpW.png" ) );
+            this->ui->btnScrollDn->setIcon(     QIcon( ":/but_DownW.png" ) );
+            this->ui->btnClear->setIcon(        QIcon( ":/resetW.png" ) );
+        } else {
+            this->setStyleSheet( CCS_DEFAULT_DAY );
+            this->ui->btnMinimize->setIcon(     QIcon( ":/abortCrossThin64DB.png" ) );
+            this->ui->imgIcon->setPixmap(       QPixmap( ":/canBusDB.png" ) );
+            this->ui->btnStartTrace->setIcon(   QIcon( ":/UsbDevice64DB.png" ) );
+            this->ui->btnScrollUp->setIcon(     QIcon( ":/but_UpDB.png" ) );
+            this->ui->btnScrollDn->setIcon(     QIcon( ":/but_DownDB.png" ) );
+            this->ui->btnClear->setIcon(        QIcon( ":/resetDB.png" ) );
+        }
+    } // toggleNightMode
+
+
+
     void    MainWindow::timerTimeOut()
     {
+        bool            nightMode   = _DATAPOOL->nightMode();
+
+        if ( nightMode != this->prevNightMode )
+            this->toggleNightMode( nightMode );         // Day / Night Mode changed
+
+
         // Bus State
         this->dataPool->update( this->tmr.interval() * 0.001f );
         CanBusState state = this->dataPool->canBusState[ this->fltrBusIndex-1 ];
@@ -343,6 +374,33 @@ MainWindow* _mainWindow = NULL;
             this->ui->lblLineOpened_2->setStyleSheet( CSS_GREY );
             this->ui->lblLineOpened_2->setText( "no" );
         }
+
+        // Bus Load Bars
+        if ( state.busLoadAvgPerc != this->ui->barBusLoadAvg->value() ) {
+            this->ui->barBusLoadAvg->setValue(    state.busLoadAvgPerc  );
+            this->ui->barBusLoadAvg_2->setValue(  state.busLoadAvgPerc  );
+            str barColor;
+            if ( state.busLoadAvgPerc > 75 )
+                barColor = "background-color: #FF823B;"; else
+            if ( state.busLoadAvgPerc > 50 )
+                barColor = "background-color: #F6CB00;"; else
+                barColor = "background-color: #00A633;";
+            this->ui->barBusLoadAvg->setStyleSheet(   "QProgressBar::chunk { " + barColor + " border-radius: 4px; }" );
+            this->ui->barBusLoadAvg_2->setStyleSheet( "QProgressBar::chunk { " + barColor + " border-radius: 4px; }" );
+        }
+        if ( state.busLoadPeakPerc != this->ui->barBusLoadPeak->value() ) {
+            this->ui->barBusLoadPeak->setValue(    state.busLoadPeakPerc  );
+            this->ui->barBusLoadPeak_2->setValue(  state.busLoadPeakPerc  );
+            str barColor;
+            if ( state.busLoadPeakPerc > 75 )
+                barColor = "background-color: #FF823B;"; else
+            if ( state.busLoadPeakPerc > 50 )
+                barColor = "background-color: #F6CB00;"; else
+                barColor = "background-color: #00A633;";
+            this->ui->barBusLoadPeak->setStyleSheet(   "QProgressBar::chunk { " + barColor + " border-radius: 4px; }" );
+            this->ui->barBusLoadPeak_2->setStyleSheet( "QProgressBar::chunk { " + barColor + " border-radius: 4px; }" );
+        }
+
 
         if ( state.lineError ) {
             this->ui->lblLineError->setStyleSheet( CSS_RED );
@@ -360,7 +418,6 @@ MainWindow* _mainWindow = NULL;
         this->ui->lblResetCnt->setText(     QString::number( state.resetCount ) );
         this->ui->lblLastErrCode->setText(  canBusErrorCodeToString( state.lastErrCode ) );
         this->ui->lblOverflowCnt->setText(  QString::number( state.txOverFlowCnt ) );
-        this->ui->lblBitrate->setText(      QString::number( round( state.bitrate * 0.001 ) ) );
         this->ui->lblRxCount->setText(      loc.toString( state.rxCount ) );    // With thousands seperator
         this->ui->lblTxCount->setText(      loc.toString( state.txCount ) );
         this->ui->lblErrFrames->setText(    loc.toString( state.errFrameCount ) );
@@ -569,7 +626,7 @@ MainWindow* _mainWindow = NULL;
 
         // Next bus
         ++this->fltrBusIndex;
-        if ( this->fltrBusIndex > 3 )
+        if ( this->fltrBusIndex > 4 )
             this->fltrBusIndex = 1;
 
         this->cSubscription = this->subscriptions[ this->fltrBusIndex-1 ];
@@ -598,6 +655,7 @@ MainWindow* _mainWindow = NULL;
     } // btnClick_Clear
 
 
+
     void    MainWindow::btnClick_TraceStart()
     {
         bool usbPresent;
@@ -605,7 +663,7 @@ MainWindow* _mainWindow = NULL;
 
 #ifdef  __VIRTUALMACHINE
         usbPresent  = true;
-        targetPath  = "/home/ccs/Desktop/POG/Framework/V4/Apps/Common/Service/CanMonitor/_testUSB/";
+        targetPath  = "/home/ccs/Desktop/OXBO/FrameworkV4/oxApps/Common/appA1_CanMonitor/_testUSB/";
 #endif
 
         if ( usbPresent ) {
@@ -621,7 +679,7 @@ MainWindow* _mainWindow = NULL;
                 this->ui->btnStopTrace->show();
                 this->ui->btnToggleBus->hide(); // Cant switch buses during measurement
             }
-        }
+        } // usbPresent
     } // btnClick_TraceStart
 
 

@@ -14,8 +14,84 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(250, 248, 246);
-background-color: rgb(255, 255, 255);</string>
+   <string notr="true">QWidget {
+	background-color: white;
+}
+
+
+QPushButton {
+	background-color: rgb(235, 236, 237);
+	font: 12pt bold;
+	border-radius: 7px;
+	border-style: none; 
+	color: rgb( 33, 32, 53 );
+}
+
+QLabel {
+	background: transparent;
+	color: rgb(33,32,53);
+}
+
+
+QTabBar::tab{
+	background-color: rgb(235, 236, 237);
+    color: rgb(34,33,54);
+	font: bold 12pt;
+    border: 0px;
+    height: 64px;
+	width: 133px;
+    padding: 0px 8px;
+    margin: 0 0 19px 0px;
+    border-left: 1px solid rgb(213,215,217);
+}
+
+QTabBar::tab:selected {
+	background-color: rgb(213,215,217);
+	color: rgb(34,33,54);
+}
+
+
+QSlider::groove:horizontal {
+	background-color: rgb(33,32,53);
+	background-color: rgb(53,53,72);
+	background-color: rgb(213,215,217);
+    height:  6px;
+    rounding: 3px;
+    margin: 0px;
+}
+
+QSlider::handle:horizontal {
+    background-color: white;    
+	border-color: rgb(153,53,72);
+	border-color: rgb(85, 255, 127);
+	border-radius: 7px;
+    border: 2px solid;
+    height: 12px;
+    width: 12px;
+    margin: -5px 0px;
+}
+
+QTableWidget {
+	color: rgb(33,32,53);
+	font: 10pt;
+	gridline-color: rgb(213,215,217);
+}
+
+QProgressBar {
+	background-color: #EBECED;
+	color: black;
+	font: 10pt;
+	text-align: right;
+	border-style: none;
+    border-radius: 5px;
+}
+
+QProgressBar::chunk {
+	background-color: #00A633;
+	border-radius: 5px;
+}
+
+</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QFrame" name="frameMaximized">
@@ -28,7 +104,7 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background: white;</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -46,18 +122,14 @@ background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/resetB.png</normaloff>:/resetB.png</iconset>
+       <normaloff>:/resetDB.png</normaloff>:/resetDB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -92,18 +164,14 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/but_DownB.png</normaloff>:/but_DownB.png</iconset>
+       <normaloff>:/but_DownDB.png</normaloff>:/but_DownDB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -145,19 +213,6 @@ color: rgb( 33, 32, 53 );</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lblBitrate">
-     <property name="geometry">
-      <rect>
-       <x>720</x>
-       <y>90</y>
-       <width>41</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>250</string>
      </property>
     </widget>
     <widget class="QLabel" name="lblResetCnt">
@@ -225,11 +280,7 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Msg ID:
@@ -246,8 +297,7 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;
-font: 10pt;</string>
+      <string notr="true"/>
      </property>
      <property name="verticalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -410,6 +460,11 @@ font: 10pt;</string>
        <string>B8</string>
       </property>
      </column>
+     <item row="0" column="0">
+      <property name="text">
+       <string>1234</string>
+      </property>
+     </item>
     </widget>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
@@ -443,22 +498,6 @@ font: 10pt;</string>
       <string>LineOpen:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>90</y>
-       <width>61</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 10pt;</string>
-     </property>
-     <property name="text">
-      <string>KBPS:</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnPaused">
      <property name="geometry">
       <rect>
@@ -482,7 +521,7 @@ background-color: rgb(239, 71, 71);</string>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/but_PauseB.png</normaloff>:/but_PauseB.png</iconset>
+       <normaloff>:/pauseCircle64DB.png</normaloff>:/pauseCircle64DB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -501,11 +540,8 @@ background-color: rgb(239, 71, 71);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 10pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true">font: 10pt bold;
+</string>
      </property>
      <property name="text">
       <string>Start
@@ -513,7 +549,7 @@ Trace</string>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/UsbDevice64B.png</normaloff>:/UsbDevice64B.png</iconset>
+       <normaloff>:/UsbDevice64DB.png</normaloff>:/UsbDevice64DB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -545,7 +581,7 @@ background-color: rgb(95, 200, 12);</string>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/but_PlayB.png</normaloff>:/but_PlayB.png</iconset>
+       <normaloff>:/playCircle64DB.png</normaloff>:/playCircle64DB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -577,11 +613,7 @@ background-color: rgb(95, 200, 12);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Source:
@@ -617,22 +649,6 @@ color: rgb( 33, 32, 53 );</string>
       <string>Transmitted:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>70</y>
-       <width>91</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">font: 10pt;</string>
-     </property>
-     <property name="text">
-      <string>Bus Load %:</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnScrollUp">
      <property name="geometry">
       <rect>
@@ -643,18 +659,14 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/but_UpB.png</normaloff>:/but_UpB.png</iconset>
+       <normaloff>:/but_UpDB.png</normaloff>:/but_UpDB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -705,12 +717,7 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 10pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );
-
+      <string notr="true">font: 10pt bold;
 background-color: rgb(239, 71, 71);</string>
      </property>
      <property name="text">
@@ -719,7 +726,7 @@ Trace</string>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/UsbDevice64B.png</normaloff>:/UsbDevice64B.png</iconset>
+       <normaloff>:/UsbDevice64DB.png</normaloff>:/UsbDevice64DB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -751,11 +758,7 @@ Trace</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>HEX</string>
@@ -771,11 +774,7 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>J1939</string>
@@ -810,11 +809,7 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>BUS 1</string>
@@ -830,18 +825,14 @@ color: rgb( 33, 32, 53 );</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 236, 237);
-font: 12pt bold;
-border-radius: 7px;
-border-style: none; 
-color: rgb( 33, 32, 53 );</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="../Data/Images/images.qrc">
-       <normaloff>:/abortCrossThin64B.png</normaloff>:/abortCrossThin64B.png</iconset>
+       <normaloff>:/abortCrossThin64DB.png</normaloff>:/abortCrossThin64DB.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -850,11 +841,42 @@ color: rgb( 33, 32, 53 );</string>
       </size>
      </property>
     </widget>
+    <widget class="QProgressBar" name="barBusLoadAvg_2">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>64</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="barBusLoadPeak_2">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>86</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
     <zorder>btnClear</zorder>
     <zorder>label_2</zorder>
     <zorder>label_5</zorder>
     <zorder>lblLineOpened</zorder>
-    <zorder>lblBitrate</zorder>
     <zorder>lblResetCnt</zorder>
     <zorder>label_7</zorder>
     <zorder>label_4</zorder>
@@ -862,7 +884,6 @@ color: rgb( 33, 32, 53 );</string>
     <zorder>tableWidget</zorder>
     <zorder>label_3</zorder>
     <zorder>label</zorder>
-    <zorder>label_8</zorder>
     <zorder>btnPaused</zorder>
     <zorder>btnStartTrace</zorder>
     <zorder>btnRecording</zorder>
@@ -870,7 +891,6 @@ color: rgb( 33, 32, 53 );</string>
     <zorder>btnFltrSrc</zorder>
     <zorder>lblRxCount</zorder>
     <zorder>label_6</zorder>
-    <zorder>label_9</zorder>
     <zorder>btnScrollUp</zorder>
     <zorder>lblLastErrCode</zorder>
     <zorder>label_10</zorder>
@@ -883,6 +903,8 @@ color: rgb( 33, 32, 53 );</string>
     <zorder>btnScrollDn</zorder>
     <zorder>lblOverflowCnt</zorder>
     <zorder>btnMinimize</zorder>
+    <zorder>barBusLoadAvg_2</zorder>
+    <zorder>barBusLoadPeak_2</zorder>
    </widget>
    <widget class="QFrame" name="frameMinimized">
     <property name="geometry">
@@ -894,8 +916,7 @@ color: rgb( 33, 32, 53 );</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: white;
-font: 12pt;</string>
+     <string notr="true"/>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -912,6 +933,9 @@ font: 12pt;</string>
        <height>17</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
+     </property>
      <property name="text">
       <string>0</string>
      </property>
@@ -919,14 +943,14 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>160</y>
-       <width>91</width>
+       <x>50</x>
+       <y>170</y>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Bus Load %:</string>
+      <string>Bus Load % avg:</string>
      </property>
     </widget>
     <widget class="QLabel" name="lblRxCount_2">
@@ -938,6 +962,9 @@ font: 12pt;</string>
        <height>17</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
+     </property>
      <property name="text">
       <string>0</string>
      </property>
@@ -945,9 +972,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_12">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>50</x>
        <y>80</y>
-       <width>71</width>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -958,9 +985,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_13">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>240</y>
-       <width>101</width>
+       <x>50</x>
+       <y>260</y>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -990,9 +1017,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>200</y>
-       <width>71</width>
+       <x>50</x>
+       <y>220</y>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -1004,10 +1031,13 @@ font: 12pt;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>220</y>
+       <y>240</y>
        <width>51</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
      </property>
      <property name="text">
       <string>0</string>
@@ -1017,10 +1047,13 @@ font: 12pt;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>240</y>
+       <y>260</y>
        <width>51</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
      </property>
      <property name="text">
       <string>0</string>
@@ -1030,7 +1063,7 @@ font: 12pt;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>260</y>
+       <y>280</y>
        <width>211</width>
        <height>17</height>
       </rect>
@@ -1065,10 +1098,13 @@ font: 12pt;</string>
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>200</y>
+       <y>220</y>
        <width>51</width>
        <height>17</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
      </property>
      <property name="text">
       <string>0</string>
@@ -1077,14 +1113,14 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_16">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>50</x>
        <y>60</y>
-       <width>91</width>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 12pt;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>LineOpened:</string>
@@ -1093,9 +1129,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_17">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>220</y>
-       <width>101</width>
+       <x>50</x>
+       <y>240</y>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -1106,9 +1142,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_18">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>50</x>
        <y>140</y>
-       <width>91</width>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -1119,9 +1155,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_19">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>260</y>
-       <width>81</width>
+       <x>50</x>
+       <y>280</y>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -1132,9 +1168,9 @@ font: 12pt;</string>
     <widget class="QLabel" name="label_20">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>50</x>
        <y>120</y>
-       <width>91</width>
+       <width>110</width>
        <height>17</height>
       </rect>
      </property>
@@ -1158,9 +1194,74 @@ font: 12pt;</string>
       <string>CAN-BUS 1</string>
      </property>
     </widget>
+    <widget class="QLabel" name="imgIcon">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>10</y>
+       <width>96</width>
+       <height>96</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../Data/Images/images.qrc">:/canBusDB.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="barBusLoadAvg">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>168</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="barBusLoadPeak">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>190</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="value">
+      <number>24</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>190</y>
+       <width>110</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bus Load % peak:</string>
+     </property>
+    </widget>
    </widget>
-   <zorder>frameMinimized</zorder>
-   <zorder>frameMaximized</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

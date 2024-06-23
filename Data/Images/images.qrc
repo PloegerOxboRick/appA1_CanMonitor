@@ -1,12 +1,22 @@
 <RCC>
     <qresource prefix="/">
-        <file>but_UpB.png</file>
-        <file>but_PlayB.png</file>
-        <file>but_PauseB.png</file>
-        <file>but_DownB.png</file>
-        <file>resetB.png</file>
-        <file>disk40B.png</file>
-        <file>UsbDevice64B.png</file>
-        <file>abortCrossThin64B.png</file>
+        <file>abortCrossThin64DB.png</file>
+        <file>pauseCircle64DB.png</file>
+        <file>playCircle64DB.png</file>
+        <file>abortCrossThin64W.png</file>
+        <file>pauseCircle64W.png</file>
+        <file>playCircle64W.png</file>
+        <file>canBusDB.png</file>
+        <file>but_UpDB.png</file>
+        <file>but_DownDB.png</file>
+        <file>UsbDevice64DB.png</file>
+        <file>resetDB.png</file>
+        <file>disk40DB.png</file>
+        <file>disk40W.png</file>
+        <file>resetW.png</file>
+        <file>UsbDevice64W.png</file>
+        <file>but_UpW.png</file>
+        <file>but_DownW.png</file>
+        <file>canBusW.png</file>
     </qresource>
 </RCC>

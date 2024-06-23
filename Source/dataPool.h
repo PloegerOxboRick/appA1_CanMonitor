@@ -18,17 +18,21 @@ const int   BUILD       = 03;
     class DataPool
     {
     private:
-        float                    lastBusUpdate;
+        float                       lastBusUpdate;
 
-        pdpSocketAPI_CanSystem*  canSystem;
+        pdpSocketAPI_EntitySystem*  entitySystem;
+        pdpSocketAPI_CanSystem*     canSystem;
 
+        pdpEntitySubscription*      subMachineState;
+        pdpEntity*                  vDisplayNightMode;
     public:
-        CanBusState              canBusState[4];
+        CanBusState                 canBusState[4];
 
         DataPool();
         ~DataPool();
 
-        void        update( const float deltaSecs );
+        void            update( const float deltaSecs );
+        bool            nightMode();
     }; // DataPool
 
 
