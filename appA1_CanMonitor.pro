@@ -55,7 +55,7 @@ FORMS += \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/pogApps/$${TARGET}/ReleaseIMX8
+else: unix:!android: target.path = /opt/oxApps/$${TARGET}/ReleaseIMX8
 !isEmpty(target.path): INSTALLS += target
 
 
