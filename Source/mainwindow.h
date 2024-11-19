@@ -51,7 +51,6 @@ const str CSS_LBLWARN   = "background-color: rgb( 250, 248, 100 ); color: black;
 
         QTimer  tmr;
 
-        void    declareVersion();
         void    addMessage( PCanMessage* msg, const int count, const int deltaMSec, const str info );
         void    setLineAddress( const int index, RecordedMsg *logMsg );
         void    setLineData(    const int index, RecordedMsg *logMsg );

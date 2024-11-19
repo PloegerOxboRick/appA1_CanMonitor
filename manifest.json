@@ -1,5 +1,9 @@
 {
 	"appIdName":		"appA1_CanMonitor",
+        "version":              "01.01.02",
+        "buildDate":            "2024-19-11",
+        "author":               "Oxbo - Rick Nieuwlaat",
+
 	"appName":		"CAN Monitor",
 	"category":		"Diagnostics",
 	"description":		"Shows in- and outgoing CAN-bus traffic",

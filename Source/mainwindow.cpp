@@ -9,8 +9,6 @@
 //  GLOBAL VAR
 
 MainWindow* _mainWindow = NULL;
-      str   appBuildDate= "<not set>";
-      str   appVersion  = "<not set>";
 
 
 
@@ -152,8 +150,7 @@ MainWindow* _mainWindow = NULL;
 
         this->dataPool      = new DataPool();   // Subscribe on the Entities we need in this APP
         // Listen to AppManager
-        this->appManLink    = new MyAppManLink( "CanMonitor", this );        
-        this->declareVersion();
+        this->appManLink    = new MyAppManLink( APPNAME, this );
 
         // Make CAN message subscriptions
         for (int i=0; i<4; i++) {
@@ -190,24 +187,6 @@ MainWindow* _mainWindow = NULL;
         delete dataPool;
         delete appManLink;
     } // destroy
-
-
-
-    void    MainWindow::declareVersion()
-    {
-        QString buildDate   = QStringLiteral(__DATE__);
-        QString buildTime   = QStringLiteral(__TIME__);
-
-        appVersion          = oxStrings::lead( REVISION, 2 ) +"."+ oxStrings::lead( VERSION, 2 ) +"."+ oxStrings::lead( BUILD, 2 );
-        appBuildDate        = buildDate;
-
-        qDebug()<<APPNAME+" VERSION: "+ appVersion;
-        qDebug()<<APPNAME+" BUILDDATE: "+ buildDate+"   "+buildTime;
-
-        if ( _ES ) {
-            _ES->setModuleVersion( APPNAME, appVersion, appBuildDate );
-        }
-    } // declareVersion
 
 
     void    MainWindow::addMessage( PCanMessage* msg,
