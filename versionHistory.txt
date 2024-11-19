@@ -1,0 +1,16 @@
+//************************************************************************************
+//  appA1_CanMonitor   version 01.01.02        buildDate 01 Mar 2025   Rick Nieuwlaat
+//************************************************************************************
+    FIX:    Clear function would not clear the whole list in certain cases / crash the APP
+
+    NEW:    NightMode added
+    NEW:    Operator manual added (English)
+    NEW:    Can Bus load % computed and shown as gauge
+
+    CHANGE: Modified minimized window (extra symbol, show which CAN is being monitored currently)
+
+//************************************************************************************
+//  appA1_CanMonitor    version 00.01.01        buildDate 2023       Rick Nieuwlaat
+//************************************************************************************
+First version
+    NEW:    View all in- and outgoing CAN traffic

@@ -112,3 +112,6 @@ DEPENDPATH      += $$PWD/../../../oxLibs/oxCommon
 RESOURCES += \
     Data/Images/images.qrc
 
+DISTFILES += \
+    versionHistory.txt
+
